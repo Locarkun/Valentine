@@ -41,22 +41,17 @@
             height: auto;
             display: none;
         }
+        #usImage {
+            width: 200px !important;  /* Force it to stay small */
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
         #valentineImage {
             max-width: 200px; /* Resize properly */
             height: auto;
             border-radius: 10px;
             display: none;
-        }
-        #secondImage {
-            max-width: 200px; 
-            border-radius: 10px;
-            display: none;
-        }
-        #usImage {
-            max-width: 200px; /* Fix size for Us.jpg */
-            height: auto;
-            border-radius: 10px;
-            display: block; /* Ensure it displays correctly */
         }
     </style>
 </head>
@@ -95,6 +90,8 @@
             valentineImage.style.display = "block";
             yesBtn.style.display = "none";
             noBtn.style.display = "none";
+            
+            // ✅ Properly updates the title
             mainText.innerHTML = "Really??? HIHIHI I can’t wait to spend Valentine’s with you! <br> Here's a song cover for you ❤️❤️ <br> I Love You!!";
         });
 
