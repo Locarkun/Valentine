@@ -42,17 +42,22 @@
             display: none;
         }
         #valentineImage {
-    width: 200px !important; /* Force width */
-    height: auto !important; /* Maintain aspect ratio */
-    max-width: 100%; /* Prevent overflow */
-    border-radius: 10px;
-}
-
-#secondImage {
-    max-width: 200px; /* Adjust size as needed */
-    border-radius: 10px;
-    display: none;
-}
+            max-width: 200px; /* Resize properly */
+            height: auto;
+            border-radius: 10px;
+            display: none;
+        }
+        #secondImage {
+            max-width: 200px; 
+            border-radius: 10px;
+            display: none;
+        }
+        #usImage {
+            max-width: 200px; /* Fix size for Us.jpg */
+            height: auto;
+            border-radius: 10px;
+            display: block; /* Ensure it displays correctly */
+        }
     </style>
 </head>
 <body>
@@ -62,11 +67,11 @@
         <button id="noBtn">No</button>
         <div id="imageContainer">
             <div class="topImages">
-                <img src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Happy.gif" alt="Left GIF">
-                <img src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Us.jpg" alt="Your Picture">
-                <img src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Happy.gif" alt="Right GIF">
+                <img id="leftGif" class="gif" src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Happy.gif" alt="Left GIF">
+                <img id="usImage" src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Us.jpg" alt="Your Picture">
+                <img id="rightGif" class="gif" src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Happy.gif" alt="Right GIF">
             </div>
-            <img src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Hihi.png" alt="Extra Picture">
+            <img id="valentineImage" src="https://github.com/Locarkun/Valentine/raw/refs/heads/main/assets/Hihi.png" alt="Extra Picture">
         </div>
     </div>
     <audio id="loveSong" src="music/music.mp3"></audio>
@@ -79,9 +84,8 @@
         const leftGif = document.getElementById("leftGif");
         const rightGif = document.getElementById("rightGif");
         const valentineImage = document.getElementById("valentineImage");
-        const secondImage = document.getElementById("secondImage");
 
-        loveSong.volume = 0.5; // Adjust volume (0.0 to 1.0)
+        loveSong.volume = 0.5;
 
         yesBtn.addEventListener("click", function() {
             loveSong.play();
@@ -89,19 +93,18 @@
             leftGif.style.display = "block";
             rightGif.style.display = "block";
             valentineImage.style.display = "block";
-            secondImage.style.display = "block";
             yesBtn.style.display = "none";
             noBtn.style.display = "none";
             mainText.innerHTML = "Really??? HIHIHI I can’t wait to spend Valentine’s with you! <br> Here's a song cover for you ❤️❤️ <br> I Love You!!";
         });
 
         noBtn.addEventListener("mouseover", function() {
-    let newTop = Math.random() * (window.innerHeight - 50); // Ensures it stays within view
-    let newLeft = Math.random() * (window.innerWidth - 100); // Ensures it stays within view
+            let newTop = Math.random() * (window.innerHeight - 50);
+            let newLeft = Math.random() * (window.innerWidth - 100);
 
-    noBtn.style.top = newTop + "px";
-    noBtn.style.left = newLeft + "px";
-});
+            noBtn.style.top = newTop + "px";
+            noBtn.style.left = newLeft + "px";
+        });
     </script>
 </body>
 </html>
